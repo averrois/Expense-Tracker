@@ -1,3 +1,3 @@
 <template> 
-  <h1>Yellow World</h1>
+  <h1 class="text-3xl font-bold underline text-primary">Yellow World</h1>
 </template>
