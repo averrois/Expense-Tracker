@@ -1,5 +1,16 @@
+<script setup lang="ts">
+import { ref } from "vue"
+
+const text = ref("")
+const amount = ref(0)
+
+const onSbmit = () => {
+  console.log(text.value, amount.value)
+}
+</script>
+
 <template>
-  <form class="">
+  <form @submit.prevent="onSbmit">
     <h4 class="text-xl font-bold">Add Transaction</h4>
     <div class="space-y-2 w-full mt-4">
       <label
@@ -11,6 +22,7 @@
       <input
         class="flex h-10 w-full rounded-md px-3 py-3 text-base ring-offset-background bg-grey-200"
         id="text"
+        v-model="text"
         placeholder="Enter your text"
       />
     </div>
@@ -26,6 +38,7 @@
       <input
         class="flex h-10 w-full rounded-md px-3 py-3 text-base ring-offset-background bg-grey-200"
         id="amount"
+        v-model="amount"
         placeholder="Enter your amount"
       />
     </div>

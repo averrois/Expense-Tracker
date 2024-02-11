@@ -45,7 +45,7 @@ const expense = computed(() => {
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => {
       return acc + transaction.amount;
-    }, 0)
+    }, 0) * -1
     .toFixed(2);
 });
 
@@ -57,7 +57,7 @@ const expense = computed(() => {
   >
     <Header />
     <Balance :total="total" />
-    <IncomeExpenses :income="income" :expenses="expense"/>
+    <IncomeExpenses :income="+income" :expenses="+expense"/>
     <TransactionList :transactions="transactions" />
     <AddTransaction />
   </main>
