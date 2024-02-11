@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import {useToast} from "vue-toastification"
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
 
-const toast = useToast()
-const text = ref("")
-const amount = ref()
+const toast = useToast();
+const text = ref("");
+const amount = ref();
 
-const emit = defineEmits(['transactionSubmitted'])
+const emit = defineEmits(["transactionSubmitted"]);
 
 const onSbmit = () => {
-  if (!text.value  || !amount.value) {
-    toast.error("Both fileds must be filled")
+  if (!text.value || !amount.value) {
+    toast.error("Both fileds must be filled");
     return;
   }
   if (isNaN(amount.value)) {
-    toast.error("Amount must be number")
+    toast.error("Amount must be number");
   }
 
   const transactionData = {
     text: text.value,
     amount: parseFloat(amount.value),
-  }
+  };
 
-  emit ('transactionSubmitted', transactionData)
+  emit("transactionSubmitted", transactionData);
 
-  text.value = ""
-  amount.value = null
-}
+  text.value = "";
+  amount.value = null;
+};
 </script>
 
 <template>
