@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import {useToast} from "vue-toastification"
 
+const toast = useToast()
 const text = ref("")
-const amount = ref(0)
+const amount = ref()
 
 const onSbmit = () => {
+  if (!text.value  || !amount.value) {
+    toast.error("Both fileds must be filled")
+    return;
+  }
+  if (isNaN(amount.value)) {
+    toast.error("Amount must be number")
+  }
   console.log(text.value, amount.value)
+
+  text.value = ""
+  amount.value = null
 }
 </script>
 
@@ -22,6 +34,7 @@ const onSbmit = () => {
       <input
         class="flex h-10 w-full rounded-md px-3 py-3 text-base ring-offset-background bg-grey-200"
         id="text"
+        type="text"
         v-model="text"
         placeholder="Enter your text"
       />
@@ -38,6 +51,7 @@ const onSbmit = () => {
       <input
         class="flex h-10 w-full rounded-md px-3 py-3 text-base ring-offset-background bg-grey-200"
         id="amount"
+        type="text"
         v-model="amount"
         placeholder="Enter your amount"
       />
