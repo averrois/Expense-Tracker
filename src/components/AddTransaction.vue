@@ -6,6 +6,8 @@ const toast = useToast()
 const text = ref("")
 const amount = ref()
 
+const emit = defineEmits(['transactionSubmitted'])
+
 const onSbmit = () => {
   if (!text.value  || !amount.value) {
     toast.error("Both fileds must be filled")
@@ -14,7 +16,13 @@ const onSbmit = () => {
   if (isNaN(amount.value)) {
     toast.error("Amount must be number")
   }
-  console.log(text.value, amount.value)
+
+  const transactionData = {
+    text: text.value,
+    amount: parseFloat(amount.value),
+  }
+
+  emit ('transactionSubmitted', transactionData)
 
   text.value = ""
   amount.value = null

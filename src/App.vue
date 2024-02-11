@@ -49,6 +49,18 @@ const expense = computed(() => {
     .toFixed(2);
 });
 
+const generateUniqueId = () => {
+  return Math.floor(Math.random() * 1000000000);
+};
+
+// Add transaction
+const handleTransactionSubmitted = (transactionData: any) => {
+  transactions.value.push({
+    id: generateUniqueId(),
+    ...transactionData,
+  })
+}
+
 </script>
 
 <template>
@@ -59,6 +71,6 @@ const expense = computed(() => {
     <Balance :total="total" />
     <IncomeExpenses :income="+income" :expenses="+expense"/>
     <TransactionList :transactions="transactions" />
-    <AddTransaction />
+    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
   </main>
 </template>
