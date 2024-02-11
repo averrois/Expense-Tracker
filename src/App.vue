@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed, ref } from "vue"
 import Header from "@/components/Header.vue"
 import Balance from "@/components/Balance.vue"
 import IncomeExpenses from "@/components/IncomeExpenses.vue"
@@ -23,6 +23,13 @@ const transactions = ref([
     amount: 800,
   },
 ])
+
+const total = computed(() => {
+  return transactions.value.reduce((acc, transaction) => {
+  return acc + transaction.amount;
+  }, 0);
+})
+
 </script>
 
 <template>
@@ -30,7 +37,7 @@ const transactions = ref([
     class="border-[2px] text-left max-sm:w-full border-grey-200 bg-grey-100 px-6 py-2 rounded mx-auto w-[500px]"
   >
     <Header />
-    <Balance />
+    <Balance :balance="total" />
     <IncomeExpenses />
     <TransactionList :transactions="transactions"/>
     <AddTransaction />
