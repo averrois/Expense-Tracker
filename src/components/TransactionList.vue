@@ -5,6 +5,12 @@ defineProps<{
   transactions: TransactionProps[];
 }>();
 
+const emit = defineEmits(['transactionDeleted'])
+
+const deleteTransaction = (id: number) => {
+  emit('transactionDeleted', id)
+}
+
 </script>
 
 <template>
@@ -19,6 +25,7 @@ defineProps<{
       >
         <button
           class="w-12 h-12 rounded bg-grey-200 hover:bg-grey-200/40 transition-all"
+          @click="deleteTransaction(transaction.id)"
         >
           <span
             class="rotate-45 inline-block transition-all hover:rotate-[-135deg] text-4xl font-semibold"
