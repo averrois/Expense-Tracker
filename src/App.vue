@@ -9,7 +9,7 @@ import AddTransaction from "@/components/AddTransaction.vue";
 import { useToast } from "vue-toastification";
 
 defineProps<{
-  transactions: TransactionProps[];
+  transactions?: TransactionProps[];
 }>();
 
 const toast = useToast()
