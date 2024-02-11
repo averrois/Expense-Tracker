@@ -23,7 +23,7 @@ bun run dev
 ## Compile and Minify for Production
 
 ```sh
-bun run dev
+bun run build
 ```
 
 ### License MIT
