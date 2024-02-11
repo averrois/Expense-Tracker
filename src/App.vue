@@ -1,9 +1,28 @@
 <script setup lang="ts">
-import Header from "@/components/Header.vue";
-import Balance from "@/components/Balance.vue";
-import IncomeExpenses from "@/components/IncomeExpenses.vue";
-import TransactionList from "@/components/TransactionList.vue";
-import AddTransaction from "./components/AddTransaction.vue";
+import { ref } from "vue"
+import Header from "@/components/Header.vue"
+import Balance from "@/components/Balance.vue"
+import IncomeExpenses from "@/components/IncomeExpenses.vue"
+import TransactionList from "@/components/TransactionList.vue"
+import AddTransaction from "@/components/AddTransaction.vue"
+
+const transactions = ref([
+  {
+    id: 1,
+    text: "Salary",
+    amount: -5000,
+  },
+  {
+    id: 2,
+    text: "Book",
+    amount: -1000,
+  },
+  {
+    id: 3,
+    text: "Camera",
+    amount: 800,
+  },
+])
 </script>
 
 <template>
@@ -13,7 +32,7 @@ import AddTransaction from "./components/AddTransaction.vue";
     <Header />
     <Balance />
     <IncomeExpenses />
-    <TransactionList />
+    <TransactionList :transactions="transactions"/>
     <AddTransaction />
   </main>
 </template>
