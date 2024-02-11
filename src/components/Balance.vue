@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps({
-  balance: {
+  total: {
     type: Number,
     default: 0,
   },
@@ -9,5 +9,5 @@ defineProps({
 
 <template>
   <h4 class="text-lg font-bold mb-2 mt-2">Your Balance</h4>
-  <h2 class="text-3xl font-extrabold">{{ balance }}$</h2>
+  <h2 class="text-3xl font-extrabold">${{ total }}</h2>
 </template>
