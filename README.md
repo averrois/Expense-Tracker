@@ -1,4 +1,4 @@
-# Bun 3 Expense Tracker
+# Vue 3 Expense Tracker
 
 An expense tracker app built with Bun 3 and the composition API.
 
