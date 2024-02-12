@@ -4,7 +4,7 @@ defineProps({
     type: Number,
     default: 0,
   },
-});
+})
 </script>
 
 <template>
