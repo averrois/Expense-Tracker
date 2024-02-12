@@ -1,4 +1,4 @@
-# Bun 3 Expense Tracker
+# Vue 3 Expense Tracker
 
 An expense tracker app built with Bun 3 and the composition API.
 
@@ -23,7 +23,7 @@ bun run dev
 ## Compile and Minify for Production
 
 ```sh
-bun run dev
+bun run build
 ```
 
 ### License MIT
